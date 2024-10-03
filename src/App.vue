@@ -82,10 +82,10 @@ const print = () => {
   <div class="bg_color bg-gray-300 p-5">
     <div class="mx-auto bg-white max-w-7xl my-5 rounded">
       <div class="content_wrap py-10 px-10">
-        <header class="head_area flex justify-between items-center flex-shrink-0">
+        <header class="head_area flex justify-between items-center flex-shrink-0 md:flex-row flex-col gap-4">
           <div class="logo flex items-center flex-shrink-0">
             <label class="w-[100px]">Logo Url :</label>
-            <input type="text" v-model="data.logoUrl" class="input !w-[500px]">
+            <input type="text" v-model="data.logoUrl" class="input md:!w-[500px]">
           </div>
           <div>
             <h2 class="text-3xl">Invoice</h2>
@@ -93,7 +93,7 @@ const print = () => {
         </header>
 
         <main>
-          <div class="date_and_invoiceno flex justify-between items-center py-4 my-4 border-y border-gray-300">
+          <div class="date_and_invoiceno flex justify-between items-center py-4 my-4 border-y border-gray-300 md:flex-row flex-col gap-4">
             <div class="input_wrap">
               <label for="date">Date: </label>
               <input type="date" id="date" v-model="data.date" class="input">
@@ -104,7 +104,7 @@ const print = () => {
             </div>
           </div>
 
-          <div class="invoice_info flex justify-between items-start mb-10">
+          <div class="invoice_info flex justify-between items-start mb-10 md:flex-row flex-col gap-4">
             <div class="invoiceto text-left">
               <label class="block font-bold" for="">Invoiced To: </label>
               <div class="input_wrap mb-2">
@@ -124,7 +124,7 @@ const print = () => {
                 <input type="text" id="invoicetoCountry" v-model="data.invoicetoCountry" class="input">
               </div>
             </div>
-            <div class="payTo text-right">
+            <div class="payTo md:text-right">
               <label class="block font-bold" for="">Pay To: </label>
               <div class="input_wrap mb-2">
                 <label>Name: </label>
@@ -145,13 +145,13 @@ const print = () => {
             </div>
           </div>
 
-          <div class="items_wrap py-5 border-y border-gray-300">
+          <div class="items_wrap overflow-x-auto py-5 border-y border-gray-300">
             <table class="w-full">
               <thead class="bg-gray-200">
                 <tr>
-                  <th class="text-left min-w-[500px] px-3 py-2">Description</th>
-                  <th class="text-left px-3 py-1">Rate</th>
-                  <th class="text-left px-3 py-1">Quantity</th>
+                  <th class="text-left min-w-[300px] md:min-w-[500px] px-3 py-2">Description</th>
+                  <th class="text-left min-w-[100px] px-3 py-1">Rate</th>
+                  <th class="text-left min-w-[100px] px-3 py-1">Quantity</th>
                   <th class="text-left px-3 py-1">Amount</th>
                 </tr>
               </thead>
@@ -162,7 +162,7 @@ const print = () => {
                   <td class="text-left"><input type="number" v-model="item.rate" class="input"></td>
                   <td class="text-left "><input type="number" v-model="item.quantity" class="input"></td>
                   <td class="text-left "><span>$ {{ item.amount = item.quantity * item.rate }}</span></td>
-                  <td class="text-left cursor-pointer opacity-0 group-hover:opacity-100">
+                  <td class="text-left cursor-pointer md:opacity-0 md:group-hover:opacity-100">
                     <button @click="removeItem(index)"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
